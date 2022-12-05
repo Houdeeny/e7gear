@@ -5,41 +5,22 @@
   padding: 1mm;
   justify-content: center;
 }
-input[type=text], select {
-  width: 100%;
-  display: inline-block;
-  border: 0.3mm solid #ccc;
-  border-radius: 1mm;
-  box-sizing: border-box;
-  background-color: #c53c3c;
-}
 input[type=number], select {
   width: 100%;
-  padding: 3mm 4mm;
-  margin: 1mm 0;
+  padding: 12px;
   display: inline-block;
   border: 0.3mm solid #ccc;
-  border-radius: 1mm;
   box-sizing: border-box;
-  background-color: #ffffff;
+  background-color: #eee;
 }
 .grid-label {
-  text-align: center;
-  color: #b6b6b6;
+  color: #ccc;
 }
 .grid-result {
-  padding-top: 2.5px;
   font-size: 200%;
   text-align: center;
   font-weight: bold;
-  background-color: #fff;
-  border: 0.3mm solid;
-  border-radius: 1mm;
-  box-sizing: border-box;
-}
-.grid-line {
-  text-align: center;
-  grid-column: 1 / span 3;
+  background-color: #eee;
 }
 .grid-last-two {
   grid-column: 2 / span 2;
