@@ -68,12 +68,29 @@
       <div class="grid-scorePercentage" id="score-percentage"></div>
       <div class="grid-error" id="errmsg"></div>
     </div>
-    <span class="text">
+    <span class="grid-text">
       <h1>What is this?</h1>
       This is a web tool for Epic Seven player to evalute the gear's level based on the substats.<br>
+      <h1>How it works?</h1>
+      There is a upper and lower bond when player "roll" a substat, which includes the default substat as well as the substat that generated during the gear's upgrade.<br>
+      We assign 100 points for the substat with the highest value and 0 points with lowest one.<br>
+      Then sum up these points to a final score. It is the gear's score shows on the tool.<br>
+      The only exception is the flat substat includes attack, defense and health.<br>
+      We cut their score to half to reflect the gap between flat substat and the percentage substat.
+      <h1>How to use it?</h1>
+      1. Select the gear's level. (Lv58-71/Lv72-85/Lv86-99)<br>
+      2. Select the gear's type. (Good/Rare/Heroic/Epic)<br>
+      3. Select the enhanced level. (+0/+3/+6/+9/+12/+15)<br>
+      4. Fill in the gear's substats.<br>
+      5. Click the "Calc" button.<br>
+      <h1>How to decide which gear is worth to keep/upgrade?</h1>
+      The gear with a good total score (>75).<br>
+      The gear's total score is not high enough, but at least one of the substat has very good value.<br>
+      One of the substat is equal/higher than player's expectation.<br>
+      Player can find all these information at the bottom of the tool's page.
     </span>
     <span class="credits">
-      Epic Seven Gear Score Calculator modified by Houdeeny.<br><br>
+      Epic Seven Gear Score Calculator modified by Houdeeny.<br>
       Credits to <a href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a> and <a href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>.
     </span>
   </body>

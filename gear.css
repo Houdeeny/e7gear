@@ -62,15 +62,15 @@ body {
   font-size: 100%;
   font-family: Verdana;
 }
-.text {
-  font-size: 75%;
-  position: absolute;
-  top: 1%;
+.grid-text {
+  display: inherit;
   padding: 5px;
   color: #fff;
+  text-align: center;
 }
 .credits {
-  padding: 5px;
+  padding-top: 50px;
+  padding-bottom: 10px;
   color: #fff;
   text-align: center;
   display: block;
