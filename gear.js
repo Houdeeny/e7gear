@@ -365,6 +365,7 @@ function reset() {
 	resetplaceholder();
 	document.getElementById("score").innerHTML = "0";
 	document.getElementById("score-percentage").innerHTML = "0%";
+	document.getElementById("score-percentage").style = "background-color:#fff";
 	err("");
 }
 
@@ -883,7 +884,7 @@ function report(enc_time, score) {
 	document.getElementById("score").innerHTML = int_score;
 	document.getElementById("score-percentage").innerHTML = percent_score + "%";
 
-	if ((percent_score >= 1) && (percent_score <= 49)) {
+	if ((percent_score >= 0) && (percent_score <= 49)) {
 		document.getElementById("score-percentage").style = "background-color:#D22B2B";
 	}
 
