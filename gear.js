@@ -1,82 +1,21 @@
-window.onload = function() {
-	var reforge = getReforge(5);
-
-	if (isReforged()) {
-		var select_enc_lv = document.getElementById("gear-enc-lv");
-		select_enc_lv.selectedIndex = 5;
-	}
-
-	var substate_max = getSubstatMax();
-	var coff = getSubstatMaxCoff();
-
-	if (isReforged()) {
-		document.getElementById("atkper").placeholder = "0% - " + (substate_max[0] * coff + reforge[0]) + "%";
-		document.getElementById("defper").placeholder = "0% - " + (substate_max[1] * coff + reforge[1]) + "%";
-		document.getElementById("hpper").placeholder = "0% - " + (substate_max[2] * coff + reforge[2]) + "%";
-		document.getElementById("eff").placeholder = "0% - " + (substate_max[3] * coff + reforge[3]) + "%";
-		document.getElementById("res").placeholder = "0% - " + (substate_max[4] * coff + reforge[4]) + "%";
-		document.getElementById("critdmg").placeholder = "0% - " + (substate_max[5] * coff + reforge[5]) + "%";
-		document.getElementById("critch").placeholder = "0% - " + (substate_max[6] * coff + reforge[6]) + "%";
-		document.getElementById("spd").placeholder = "0 - " + (substate_max[7] * coff + reforge[7]);
-		document.getElementById("atkflat").placeholder = "0 - " + (substate_max[8] * coff + reforge[8]);
-		document.getElementById("defflat").placeholder = "0 - " + (substate_max[9] * coff + reforge[9]);
-		document.getElementById("hpflat").placeholder = "0 - " + (substate_max[10] * coff + reforge[10]);
-	} else {
-		document.getElementById("atkper").placeholder = "0% - " + substate_max[0] * coff + "%";
-		document.getElementById("defper").placeholder = "0% - " + substate_max[1] * coff + "%";
-		document.getElementById("hpper").placeholder = "0% - " + substate_max[2] * coff + "%";
-		document.getElementById("eff").placeholder = "0% - " + substate_max[3] * coff + "%";
-		document.getElementById("res").placeholder = "0% - " + substate_max[4] * coff + "%";
-		document.getElementById("critdmg").placeholder = "0% - " + substate_max[5] * coff + "%";
-		document.getElementById("critch").placeholder = "0% - " + substate_max[6] * coff + "%";
-		document.getElementById("spd").placeholder = "0 - " + substate_max[7] * coff;
-		document.getElementById("atkflat").placeholder = "0 - " + substate_max[8] * coff;
-		document.getElementById("defflat").placeholder = "0 - " + substate_max[9] * coff;
-		document.getElementById("hpflat").placeholder = "0 - " + substate_max[10] * coff;
-	}
-
-	switch (getGearType()) {
-		case 1:
-			document.getElementById("gear-type").style = "color:BLACK; font-weight: bold;";
-			break;
-		case 2:
-			document.getElementById("gear-type").style = "color:BLUE; font-weight: bold;";
-			break;
-		case 3:
-			document.getElementById("gear-type").style = "color:HOTPINK; font-weight: bold;";
-			break;
-		case 4:
-			document.getElementById("gear-type").style = "color:RED; font-weight: bold;";
-			break;
-	}
+window.onload = function () {
+	reset();
 };
 
 function getSubstatName(id) {
 	switch (id) {
-		case 0:
-			return "Attack %";
-		case 1:
-			return "Defense %";
-		case 2:
-			return "Health %";
-		case 3:
-			return "Effectiveness";
-		case 4:
-			return "Effect Resistance";
-		case 5:
-			return "Critical Damage";
-		case 6:
-			return "Critical Chance";
-		case 7:
-			return "Speed";
-		case 8:
-			return "Flat Attack";
-		case 9:
-			return "Flat Defense";
-		case 10:
-			return "Flat Health";
-		default:
-			return "Substat(" + id + ")";
+		case 0: return "Attack%";
+		case 1: return "Defense%";
+		case 2: return "Health%";
+		case 3: return "Effectiveness";
+		case 4: return "Effect.Resist";
+		case 5: return "Crit Dmg";
+		case 6: return "Crit Chance";
+		case 7: return "Speed";
+		case 8: return "Attack";
+		case 9: return "Defense";
+		case 10: return "HP";
+		default: return "Substat(" + id + ")";
 	}
 }
 
@@ -87,15 +26,20 @@ function getGearEncLevel() {
 
 	if (selected === "g0") {
 		return 1;
-	} else if (selected === "g3") {
+	}
+	else if (selected === "g3") {
 		return 2;
-	} else if (selected === "g6") {
+	}
+	else if (selected === "g6") {
 		return 3;
-	} else if (selected === "g9") {
+	}
+	else if (selected === "g9") {
 		return 4;
-	} else if (selected === "g12") {
+	}
+	else if (selected === "g12") {
 		return 5;
-	} else if (selected === "g15") {
+	}
+	else if (selected === "g15") {
 		return 6;
 	}
 	return 0;
@@ -103,19 +47,14 @@ function getGearEncLevel() {
 
 function getScoreThreshold() {
 	switch (getGearEncLevel()) {
-		case 1:
-			return 70;
-		case 2:
-			return 70;
-		case 3:
-			return 65;
-		case 4:
-			return 60;
-		case 5:
-			return 55;
-		case 6:
-			return 50;
+		case 1: return 70;
+		case 2: return 70;
+		case 3: return 65;
+		case 4: return 60;
+		case 5: return 55;
+		case 6: return 50;
 	}
+
 	return 70;
 }
 
@@ -172,19 +111,15 @@ function getSubstatMax() {
 		case "70":
 			return [7, 7, 7, 7, 7,
 				6, 4, 4,
-				42, 30, 180
-			];
-		case "85":
-		case "90r":
+				42, 30, 180];
+		case "85": case "90r":
 			return [8, 8, 8, 8, 8,
 				7, 5, 5,
-				47, 34, 202
-			];
+				47, 34, 202];
 		case "90":
 			return [9, 9, 9, 9, 9,
 				8, 6, 5,
-				50, 36, 220
-			];
+				50, 36, 220];
 	}
 
 	alert("fatal error in getSubstatMax()");
@@ -201,19 +136,15 @@ function getSubstatMin() {
 		case "lv70":
 			return [3, 3, 3, 3, 3,
 				3, 2, 1,
-				28, 23, 124
-			];
-		case "lv85":
-		case "lv90r":
+				28, 23, 124];
+		case "lv85": case "lv90r":
 			return [4, 4, 4, 4, 4,
 				3, 3, 1,
-				30, 25, 147
-			];
+				30, 25, 147];
 		case "lv90":
 			return [5, 5, 5, 5, 5,
 				4, 3, 2,
-				32, 27, 170
-			];
+				32, 27, 170];
 	}
 
 	alert("fatal error in getSubstatMin()");
@@ -227,20 +158,13 @@ function getSubstatMin() {
 // 8. atk flat, 9. def flat, 10. hp flat
 function getReforge(roll) {
 	switch (roll) {
-		case 0:
-			return [1, 1, 1, 1, 1, 1, 1, 0, 11, 9, 56];
-		case 1:
-			return [3, 3, 3, 3, 3, 2, 2, 1, 18, 14, 81];
-		case 2:
-			return [4, 4, 4, 4, 4, 3, 3, 2, 24, 20, 112];
-		case 3:
-			return [5, 5, 5, 5, 5, 4, 4, 3, 30, 25, 147];
-		case 4:
-			return [7, 7, 7, 7, 7, 5, 5, 4, 38, 29, 173];
-		case 5:
-			return [8, 8, 8, 8, 8, 6, 6, 5, 47, 34, 202];
-		default:
-			return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+		case 0: return [1, 1, 1, 1, 1, 1, 1, 0, 11, 9, 56];
+		case 1: return [3, 3, 3, 3, 3, 2, 2, 1, 18, 14, 81];
+		case 2: return [4, 4, 4, 4, 4, 3, 3, 2, 24, 20, 112];
+		case 3: return [5, 5, 5, 5, 5, 4, 4, 3, 30, 25, 147];
+		case 4: return [7, 7, 7, 7, 7, 5, 5, 4, 38, 29, 173];
+		case 5: return [8, 8, 8, 8, 8, 6, 6, 5, 47, 34, 202];
+		default: return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	}
 }
 
@@ -289,17 +213,22 @@ function getRequiredDataCount() {
 
 	if (gear_type === 1) {
 		return gear_enc_lv >= 4 ? 4 : gear_enc_lv;
-	} else if (gear_type === 2) {
+	}
+	else if (gear_type === 2) {
 		if (gear_enc_lv < 4) {
 			return 2;
-		} else if (gear_enc_lv === 4) {
+		}
+		else if (gear_enc_lv === 4) {
 			return 3;
-		} else {
+		}
+		else {
 			return 4;
 		}
-	} else if (gear_type === 3) {
+	}
+	else if (gear_type === 3) {
 		return (gear_enc_lv <= 4 ? 3 : 4);
-	} else {
+	}
+	else {
 		return 4;
 	}
 }
@@ -312,86 +241,40 @@ function getSubstatMaxCoff() {
 
 	if (gear_type === 1) {
 		switch (gear_enc_lv) {
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-				coff = 1;
-				break;
-			case 5:
-				coff = 2;
-				break;
-			case 6:
-				coff = 3;
-				break;
-			default:
-				coff = 3;
+			case 1: case 2: case 3: case 4: coff = 1; break;
+			case 5: coff = 2; break;
+			case 6: coff = 3; break;
+			default: coff = 3;
 		}
 	}
 	if (gear_type === 2) {
 		switch (gear_enc_lv) {
-			case 1:
-				coff = 1;
-				break;
-			case 2:
-				coff = 2;
-				break;
-			case 3:
-			case 4:
-			case 5:
-				coff = 3;
-				break;
-			case 6:
-				coff = 4;
-				break;
-			default:
-				coff = 4;
+			case 1: coff = 1; break;
+			case 2: coff = 2; break;
+			case 3: case 4: case 5: coff = 3; break;
+			case 6: coff = 4; break;
+			default: coff = 4;
 		}
 	}
 	if (gear_type === 3) {
 		switch (gear_enc_lv) {
-			case 1:
-				coff = 1;
-				break;
-			case 2:
-				coff = 2;
-				break;
-			case 3:
-				coff = 3;
-				break;
-			case 4:
-			case 5:
-				coff = 4;
-				break;
-			case 6:
-				coff = 5;
-				break;
-			default:
-				coff = 5;
+			case 1: coff = 1; break;
+			case 2: coff = 2; break;
+			case 3: coff = 3; break;
+			case 4: case 5: coff = 4; break;
+			case 6: coff = 5; break;
+			default: coff = 5;
 		}
 	}
 	if (gear_type === 4) {
 		switch (gear_enc_lv) {
-			case 1:
-				coff = 1;
-				break;
-			case 2:
-				coff = 2;
-				break;
-			case 3:
-				coff = 3;
-				break;
-			case 4:
-				coff = 4;
-				break;
-			case 5:
-				coff = 5;
-				break;
-			case 6:
-				coff = 6;
-				break;
-			default:
-				coff = 6;
+			case 1: coff = 1; break;
+			case 2: coff = 2; break;
+			case 3: coff = 3; break;
+			case 4: coff = 4; break;
+			case 5: coff = 5; break;
+			case 6: coff = 6; break;
+			default: coff = 6;
 		}
 	}
 
@@ -410,6 +293,79 @@ function isReforged() {
 	}
 
 	return false;
+}
+
+function resetplaceholder() {
+
+	var reforge = getReforge(5);
+
+	// reforge gear must be +15
+	if (isReforged()) {
+		var select_enc_lv = document.getElementById("gear-enc-lv");
+		select_enc_lv.selectedIndex = 5;
+	}
+
+	var substate_max = getSubstatMax();
+	var coff = getSubstatMaxCoff();
+
+	if (isReforged()) {
+
+		document.getElementById("atkper").placeholder = "0% - " + (substate_max[0] * coff + reforge[0]) + "%";
+		document.getElementById("defper").placeholder = "0% - " + (substate_max[1] * coff + reforge[1]) + "%";
+		document.getElementById("hpper").placeholder = "0% - " + (substate_max[2] * coff + reforge[2]) + "%";
+		document.getElementById("eff").placeholder = "0% - " + (substate_max[3] * coff + reforge[3]) + "%";
+		document.getElementById("res").placeholder = "0% - " + (substate_max[4] * coff + reforge[4]) + "%";
+		document.getElementById("critdmg").placeholder = "0% - " + (substate_max[5] * coff + reforge[5]) + "%";
+		document.getElementById("critch").placeholder = "0% - " + (substate_max[6] * coff + reforge[6]) + "%";
+		document.getElementById("spd").placeholder = "0 - " + (substate_max[7] * coff + reforge[7]);
+		document.getElementById("atkflat").placeholder = "0 - " + (substate_max[8] * coff + reforge[8]);
+		document.getElementById("defflat").placeholder = "0 - " + (substate_max[9] * coff + reforge[9]);
+		document.getElementById("hpflat").placeholder = "0 - " + (substate_max[10] * coff + reforge[10]);
+	}
+	else {
+		document.getElementById("atkper").placeholder = "0% - " + substate_max[0] * coff + "%";
+		document.getElementById("defper").placeholder = "0% - " + substate_max[1] * coff + "%";
+		document.getElementById("hpper").placeholder = "0% - " + substate_max[2] * coff + "%";
+		document.getElementById("eff").placeholder = "0% - " + substate_max[3] * coff + "%";
+		document.getElementById("res").placeholder = "0% - " + substate_max[4] * coff + "%";
+		document.getElementById("critdmg").placeholder = "0% - " + substate_max[5] * coff + "%";
+		document.getElementById("critch").placeholder = "0% - " + substate_max[6] * coff + "%";
+		document.getElementById("spd").placeholder = "0 - " + substate_max[7] * coff;
+		document.getElementById("atkflat").placeholder = "0 - " + substate_max[8] * coff;
+		document.getElementById("defflat").placeholder = "0 - " + substate_max[9] * coff;
+		document.getElementById("hpflat").placeholder = "0 - " + substate_max[10] * coff;
+	}
+
+	switch (getGearType()) {
+		case 1:
+			document.getElementById("gear-type").style = "color:BLACK; font-weight: bold;"; break;
+		case 2:
+			document.getElementById("gear-type").style = "color:BLUE; font-weight: bold;"; break;
+		case 3:
+			document.getElementById("gear-type").style = "color:HOTPINK; font-weight: bold;"; break;
+		case 4:
+			document.getElementById("gear-type").style = "color:RED; font-weight: bold;"; break;
+	}
+}
+
+function reset() {
+
+	document.getElementById("atkper").value = "";
+	document.getElementById("critch").value = "";
+	document.getElementById("critdmg").value = "";
+	document.getElementById("hpper").value = "";
+	document.getElementById("defper").value = "";
+	document.getElementById("spd").value = "";
+	document.getElementById("eff").value = "";
+	document.getElementById("res").value = "";
+	document.getElementById("atkflat").value = "";
+	document.getElementById("defflat").value = "";
+	document.getElementById("hpflat").value = "";
+
+	resetplaceholder();
+	document.getElementById("score").innerHTML = "0";
+	document.getElementById("score-percentage").innerHTML = "0%";
+	err("");
 }
 
 function validate() {
@@ -434,39 +390,17 @@ function validate() {
 
 		if (data[idx] < 0) {
 			switch (idx) {
-				case 0:
-					err("ERROR! Attack (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 1:
-					err("ERROR! Defense (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 2:
-					err("ERROR! Health (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 3:
-					err("ERROR! Effectiveness (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 4:
-					err("ERROR! Effect Resistance (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 5:
-					err("ERROR! Critical Damage (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 6:
-					err("ERROR! Critical Chance (" + data[idx] + "%) cannot be negative.");
-					break;
-				case 7:
-					err("ERROR! Speed (" + data[idx] + ") cannot be negative.");
-					break;
-				case 8:
-					err("ERROR! Flat Attack (" + data[idx] + ") cannot be negative.");
-					break;
-				case 9:
-					err("ERROR! Flat Defense (" + data[idx] + ") cannot be negative.");
-					break;
-				case 10:
-					err("ERROR! Flat Health (" + data[idx] + ") cannot be negative.");
-					break;
+				case 0: err("ERROR! Attack (" + data[idx] + "%) cannot be negative."); break;
+				case 1: err("ERROR! Defense (" + data[idx] + "%) cannot be negative."); break;
+				case 2: err("ERROR! Health (" + data[idx] + "%) cannot be negative."); break;
+				case 3: err("ERROR! Effectiveness (" + data[idx] + "%) cannot be negative."); break;
+				case 4: err("ERROR! Effect.Resistance (" + data[idx] + "%) cannot be negative."); break;
+				case 5: err("ERROR! Crit.Damage (" + data[idx] + "%) cannot be negative."); break;
+				case 6: err("ERROR! Crit.Chance (" + data[idx] + "%) cannot be negative."); break;
+				case 7: err("ERROR! Speed (" + data[idx] + ") cannot be negative."); break;
+				case 8: err("ERROR! Attach (" + data[idx] + ") cannot be negative."); break;
+				case 9: err("ERROR! Defense (" + data[idx] + ") cannot be negative."); break;
+				case 10: err("ERROR! Health (" + data[idx] + ") cannot be negative."); break;
 			}
 			return -1;
 		}
@@ -485,7 +419,8 @@ function validate() {
 
 		if (isReforged()) {
 			min = substat_min[idx] + reforgeMin[idx];
-		} else {
+		}
+		else {
 			min = substat_min[idx];
 		}
 
@@ -497,7 +432,7 @@ function validate() {
 
 	// check if data count meet the requirement 
 	if (totaldata != getRequiredDataCount()) {
-		err("ERROR! The specified gear setting requires " + getRequiredDataCount() + " substat(s).");
+		err("ERROR! This gear requires " + getRequiredDataCount() + " substat(s).");
 		return -1;
 	}
 
@@ -530,18 +465,10 @@ function calc() {
 	}
 
 	switch (valid_data_size) {
-		case 1:
-			cal1();
-			break;
-		case 2:
-			cal2();
-			break;
-		case 3:
-			cal3();
-			break;
-		case 4:
-			cal4();
-			break;
+		case 1: cal1(); break;
+		case 2: cal2(); break;
+		case 3: cal3(); break;
+		case 4: cal4(); break;
 		default:
 			console.log("Debug error, valid_data_size " + valid_data_size + " does not support.");
 			return;
@@ -565,7 +492,8 @@ function cal1() {
 
 	if (score === false) {
 		err(getPossibleErrorDesc(enc_time));
-	} else {
+	}
+	else {
 		report(enc_time, score);
 	}
 }
@@ -605,7 +533,8 @@ function cal2() {
 
 	if (best_score < 0) {
 		err(getPossibleErrorDesc(enc_time));
-	} else {
+	}
+	else {
 		report(best_score_enc_time, best_score);
 	}
 }
@@ -646,7 +575,8 @@ function cal3() {
 
 	if (best_score < 0) {
 		err(getPossibleErrorDesc(enc_time));
-	} else {
+	}
+	else {
 		report(best_score_enc_time, best_score);
 	}
 }
@@ -693,7 +623,8 @@ function cal4() {
 
 	if (best_score < 0) {
 		err(getPossibleErrorDesc(enc_time));
-	} else {
+	}
+	else {
 		report(best_score_enc_time, best_score);
 	}
 }
@@ -717,6 +648,7 @@ function getPossibleErrorDesc(enc_time) {
 			hasFlatSubstat = true;
 		}
 	}
+
 	str = "ERROR! Substat(s) value does not match the gear type or the enhance level.";
 
 	if (getMinTotalEncTime(enc_time) > getMultiplier()) {
@@ -791,7 +723,8 @@ function checkSubstatmin(enc_time) {
 
 			max = substat_max[idx] * enc_time[enc_idx] + getReforge(enc_time[enc_idx] - 1)[idx];
 			min = substat_min[idx] * enc_time[enc_idx] + getReforge(enc_time[enc_idx] - 1)[idx];
-		} else {
+		}
+		else {
 
 			if (data[idx] > substat_max[idx] * coff) {
 				data[idx] = substat_max[idx] * coff;
@@ -805,13 +738,15 @@ function checkSubstatmin(enc_time) {
 			//	console.log( "checkSubstatmin enc_idx =" + enc_idx + 
 			//	             " total substate count:" + data_count + ", break");
 			break;
-		} else {
+		}
+		else {
 			if (data[idx] < min) {
 				//	console.log( "checkSubstatmin return false, data[" + getSubstatName(idx) + "]=" + data[idx] + 
 				//	 	" substat_min[" + getSubstatName(idx) + "]=" + substat_min[idx] +
 				//		" enc_time[" + enc_idx + "]=" + enc_time[enc_idx] );
 				return false;
-			} else if (data[idx] > max) {
+			}
+			else if (data[idx] > max) {
 				//	console.log( "checkSubstatmin return false, data[" + getSubstatName(idx) + "]=" + data[idx] + 
 				//	 	" substat_max[" + getSubstatName(idx) + "]=" + substat_max[idx] +
 				//		" enc_time[" + enc_idx + "]=" + enc_time[enc_idx] );
@@ -853,14 +788,16 @@ function calcScore(enc_time) {
 		// so we use 4 as maximum to calculate the score 
 		if ((getGearLevel() === "85" || getGearLevel === "90r") && idx === 7) {
 			substat_max_tmp = 4;
-		} else {
+		}
+		else {
 			substat_max_tmp = substat_max[idx];
 		}
 
 		if (isReforged()) {
 			tmp = (data[idx] - substat_min[idx] * enc_time[enc_idx] - getReforge(enc_time[enc_idx] - 1)[idx]) * 100 /
 				(substat_max_tmp - substat_min[idx]);
-		} else {
+		}
+		else {
 			tmp = (data[idx] - substat_min[idx] * enc_time[enc_idx]) * 100 /
 				(substat_max_tmp - substat_min[idx]);
 		}
@@ -931,7 +868,8 @@ function report(enc_time, score) {
 				valid_data_high_score_idx[valid_data_high_score_count] = idx;
 				valid_data_high_score_count++;
 			}
-		} else if (data[idx] >= substat_max[idx] * 3) {
+		}
+		else if (data[idx] >= substat_max[idx] * 3) {
 
 			if (idx < 8) { // not flat substat
 				valid_data_high_score_idx[valid_data_high_score_count] = idx;
@@ -942,10 +880,24 @@ function report(enc_time, score) {
 		valid_data_size++;
 	}
 
-	document.getElementById("score").innerHTML = "" + int_score;
-	document.getElementById("score-percentage").innerHTML = "" + percent_score + "%";
+	document.getElementById("score").innerHTML = int_score;
+	document.getElementById("score-percentage").innerHTML = percent_score + "%";
 
-	str = str + '<span style="font-size:125%">';
+	if ((percent_score >= 1) && (percent_score <= 49)) {
+		document.getElementById("score-percentage").style = "background-color:RED";
+	}
+
+	if ((percent_score >= 50) && (percent_score <= 69)) {
+		document.getElementById("score-percentage").style = "background-color:YELLOW";
+	}
+
+	else {
+		document.getElementById("score-percentage").style = "background-color:GREEN";
+	}
+
+	str = str + '<span style="font-size:115%">';
+	str = str + "• Summary";
+	str = str + '</span><br>';
 
 	op_cost_numerator = 1;
 	op_cost_denominator = 1;
@@ -979,83 +931,79 @@ function report(enc_time, score) {
 	}
 
 	switch (getGearType()) {
-		case 1:
-			break;
-		case 2:
-			op_cost_denominator = op_cost_denominator * 2;
-			break;
-		case 3:
-			op_cost_denominator = op_cost_denominator * 3;
-			break;
-		case 4:
-			op_cost_denominator = op_cost_denominator * 4;
-			break;
+		case 1: break;
+		case 2: op_cost_denominator = op_cost_denominator * 2; break;
+		case 3: op_cost_denominator = op_cost_denominator * 3; break;
+		case 4: op_cost_denominator = op_cost_denominator * 4; break;
 	}
 
 	if (op_cost_numerator / op_cost_denominator === 1) {
 		op_cost = 1;
-	} else {
+	}
+	else {
 		op_cost = Math.ceil(1 / (op_cost_numerator / op_cost_denominator));
 	}
 
 	// console.log( "op: " + ( op_cost_numerator / op_cost_denominator ) + " op_cost: " + op_cost );
 
 	if (percent_score >= 70 && getGearEncLevel() > 4) {
-		str = str + "[Summary] Amazing gear score!<br>Craft " + op_cost + " gears for a similar one.<br><br>";
+		str = str + "◦ Amazing gear score!";
 	} else if (percent_score >= 70 || percent_score >= getScoreThreshold()) {
 
 		var threshold = percent_score > 70 ? 70 : getScoreThreshold();
 
-		str = str + "[Summary] Decent gear score.<br>Craft " + op_cost + " gears for a similar one.<br><br>";
+		str = str + "◦ Decent gear score.";
 	} else if (valid_data_high_score_count > 0) {
-		str = str + "[Summary] Decent roll into " +
-			getSubstatName(valid_data_high_score_idx[0]).toLowerCase();
-
+		str = str + "◦ Decent roll into " +
+			getSubstatName(valid_data_high_score_idx[0]);
 		for (var idx = 1; idx < valid_data_high_score_count - 1; idx++) {
-			str = str + ", " + getSubstatName(valid_data_high_score_idx[idx]).toLowerCase();
+			str = str + ", " + getSubstatName(valid_data_high_score_idx[idx]);
 		}
-
 		if (valid_data_high_score_count > 1) {
-			str = str + " and " + getSubstatName(valid_data_high_score_idx[idx]).toLowerCase();
+			str = str + " and " + getSubstatName(valid_data_high_score_idx[idx]);
 		}
 
-		str = str + ", keep it if you want.<br>Craft " + op_cost + " gears for a similar one.<br><br>";
+		str = str + ", it is worth keeping.";
 	} else {
-		str = str + "[Summary] Sell it if you are endgame.<br>Craft " + op_cost + " gears for a similar one.<br><br>";
+		str = str + "◦ Sell or extract it if you are endgame.";
 	}
-
+	str = str + "<br>◦ It will take an estimate of " + op_cost + " gears to get a similar one.<br><br>";
+	str = str + '<span style="font-size:115%">';
+	str = str + "• Gear Score";
 	str = str + '</span>';
-
-	str = str + "[Score] Gear score is " + int_score + " out of " + max_score + ".<br>It is " + percent_score + " % of its potential.<br><br>";
-	str = str + "[Detail]<br>";
+	str = str + "<br>◦ Gear score is " + int_score + " out of " + max_score + " (" + percent_score + "%)<br><br>";
+	str = str + '<span style="font-size:115%">';
+	str = str + "• Details";
+	str = str + '</span><br>';
 
 	for (var idx = 0; idx < valid_data_size; idx++) {
 
-		// the maximum substat for lv85 speed could be 5, but it extremely rare.
+		// the maximum substate for lv85 speed could be 5, but it extremely rare.
 		// so we use 4 as maximum for the report
 		var substat_max_tmp = substat_max[valid_data_type[idx]];
 		if ((getGearLevel() === "85" || getGearLevel === "90r") && valid_data_type[idx] === 7) {
 			substat_max_tmp = 4;
 		}
 
-		str = str + getSubstatName(valid_data_type[idx]) + " rolled " + enc_time[idx] + " times, and got " +
-			valid_data[idx] + " out of " +
-			substat_max_tmp * enc_time[idx] + " points.";
+		str = str + "◦ " + getSubstatName(valid_data_type[idx]) + " rolled " + enc_time[idx] + " time(s)";
+		str = str + '<br><span style="font-style:italic;font-size:85%;padding-left:10px">';
+		str = str + " " + valid_data[idx] + " out of " + substat_max_tmp * enc_time[idx] + " points";
 
 		if (isReforged()) {
 
+			str = str + " | ";
 			str = str + "Got " + getReforge(enc_time[idx] - 1)[valid_data_type[idx]] + " points from reforge.";
 
 			if (valid_data[idx] > substat_max[valid_data_type[idx]] * enc_time[idx] + getReforge(enc_time[idx] - 1)[valid_data_type[idx]]) {
 				str = str + '<span style="font-color: red">Warning: The value is larger than the possible limitation.</span>';
 			}
-		} else {
+		}
+		else {
 			if (valid_data[idx] > substat_max[valid_data_type[idx]] * enc_time[idx]) {
 				str = str + '<span style="font-color: red">Warning: The value is larger than the possible limitation.</span>';
 			}
 		}
-
-		str = str + '<br>';
+		str = str + '</span><br><br>';
 	}
 	err(str);
 }

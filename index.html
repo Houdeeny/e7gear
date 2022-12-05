@@ -11,18 +11,21 @@
       <div class="grid-label">Gear Level</div>
       <div class="grid-label">Gear Grade</div>
       <div class="grid-label">Enhancement</div>
+
       <select id="gear-lv" name="gear-lv" onchange="resetplaceholder()">
         <option id="lv70" value="lv70">Lv58 - 71</option>
         <option id="lv85" value="lv85" selected>Lv72 - 85</option>
         <option id="lv90" value="lv90">Lv86 - 99</option>
         <option id="lv90r" valur="lv90r">Lv90 (Reforged)</option>
       </select>
+
       <select id="gear-type" name="gear-type" onchange="resetplaceholder()">
         <option id="gwhite" value="gwhite" style="color:BLACK; font-weight: bold;">Good</option>
         <option id="gblue" value="gblue" style="color:BLUE; font-weight: bold;">Rare</option>
         <option id="gpink" value="gpink" style="color:HOTPINK; font-weight: bold;" selected>Heroic</option>
         <option id="gred" value="gred" style="color:RED; font-weight: bold;">Epic</option>
       </select>
+
       <select id="gear-enc-lv" onchange="resetplaceholder()" name="gear-enc-lv">
         <option id="g0" value="gear-lv0" selected>+0, +1, +2</option>
         <option id="g3" value="gear-lv3">+3, +4, +5</option>
@@ -31,41 +34,42 @@
         <option id="g12" value="gear-lv12">+12, +13, +14</option>
         <option id="g15" value="gear-lv15">+15</option>
       </select>
+
       <div class="grid-label" id="label-atkper">Attack %</div>
       <div class="grid-label" id="label-defper">Defense %</div>
       <div class="grid-label" id="label-hpper">Health %</div>
       <input type="number" id="atkper" min="0" max="48">
       <input type="number" id="defper" min="0" max="48">
       <input type="number" id="hpper" min="0" max="48">
+
       <div class="grid-label" id="label-atkflat">Flat Attack</div>
       <div class="grid-label" id="label-defflat">Flat Defense</div>
       <div class="grid-label" id="label-hpflat">Flat Health</div>
       <input type="number" id="atkflat" min="0" max="282">
       <input type="number" id="defflat" min="0" max="198">
       <input type="number" id="hpflat" min="0" max="1200">
+
       <div class="grid-label" id="label-critch">Critical Chance</div>
       <div class="grid-label" id="label-critdmg">Critical Damage</div>
       <div class="grid-label" id="label-spd">Speed</div>
       <input type="number" id="critch" min="0" max="48">
       <input type="number" id="critdmg" min="0" max="48">
       <input type="number" id="spd" min="0" max="24">
+
       <div class="grid-label" id="label-eff">Effectiveness</div>
       <div class="grid-label" id="label-res">Effect Resistance</div>
       <div class="grid-label" id="label-score">Gear Score</div>
       <input type="number" id="eff" min="0" max="48">
       <input type="number" id="res" min="0" max="48">
       <div class="grid-result" id="score">0</div>
+      
       <div class="button" id="btn-calc" onclick="calc()">Calculate</div>
       <div class="button" id="btn-reset" onclick="reset()">Reset</div>
       <div class="grid-result" id="score-percentage">0%</div>
       <div class="grid-error" id="errmsg"></div>
     </div>
-    <span class="center" style="color:rgb(255, 255, 255)">Epic Seven Gear Score Calculator modified by Houdeeny.</span>
-    <span class="center" style="color:rgb(255, 255, 255)">
-      Credits to
-      <a style="color:rgb(187, 187, 187)" href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a>
-      and
-      <a style="color:rgb(187, 187, 187)" href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>
+    <span class="credits">Epic Seven Gear Score Calculator modified by Houdeeny.<br>
+      Credits to <a href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a> and <a href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>.
     </span>
   </body>
 </html>
