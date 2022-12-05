@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 175px 175px 175px;
+  grid-template-columns: 150px 150px 150px;
   grid-gap: 1em;
   padding: 1mm;
   justify-content: center;
@@ -21,9 +21,6 @@ input[type=number], select {
   text-align: center;
   font-weight: bold;
   background-color: #eee;
-}
-.grid-last-two {
-  grid-column: 2 / span 2;
 }
 .grid-error {
   grid-column: 1 / span 3;
@@ -52,6 +49,7 @@ input[type=number], select {
   box-sizing: border-box;
 }
 body {
+  max-width: 100%;
   background-color: #2b2b2b;
 }
 * {
