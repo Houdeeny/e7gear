@@ -979,11 +979,11 @@ window.onload = function () {
 	   document.getElementById("score-percentage").style = "background-color:#D22B2B";
 	}
  
-	if ((percent_score >= 50) && (percent_score <= 69)) {
+	if ((percent_score >= 50) && (percent_score <= 64)) {
 	   document.getElementById("score-percentage").style = "background-color:#FFBF00";
 	}
  
-	if ((percent_score >= 70) && (percent_score <= 100)) {
+	else {
 	   document.getElementById("score-percentage").style = "background-color:#7CFC00";
 	}
  
