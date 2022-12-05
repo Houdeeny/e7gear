@@ -1,6 +1,5 @@
 .grid-container {
   display: grid;
-  grid-template-columns: minmax();
   grid-gap: 1mm;
   padding: 1mm;
 }
@@ -12,6 +11,7 @@ select {
 }
 
 .grid-label {
+  padding: 5px;
   color: #ccc;
   text-align: center;
 }
@@ -25,7 +25,7 @@ select {
 }
 
 .grid-scorePer {
-  padding-top: 5px;
+  padding-top: 10px;
   font-size: 200%;
   text-align: center;
   font-weight: bold;
@@ -91,7 +91,6 @@ select {
 }
 
 body {
-  padding-right: 1%;
   background-color: #222;
 }
 
