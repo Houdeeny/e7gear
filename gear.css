@@ -1,83 +1,67 @@
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 1em;
+  grid-gap: 1mm;
   padding: 1mm;
-  justify-content: center;
 }
-input[type=number], select {
-  padding: 12px;
-}
-.grid-label {
-  color: #ccc;
-}
-.grid-score {
-  padding-top: 4px;
-  font-size: 200%;
-  text-align: center;
-  font-weight: bold;
-  background-color: #fff;
-}
-.grid-scorePercentage {
-  padding-top: 8px;
-  font-size: 200%;
-  text-align: center;
-  font-weight: bold;
-  background-color: #fff;
-}
-.grid-error {
-  grid-column: 1 / span 3;
-  min-height: 5em;
-  border-color: WhiteSmoke;
-  border-style: groove;
-  color: white;
-  padding: 10px;
-}
-.button {
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 3mm 4mm;
+  margin: 1mm 0;
   display: inline-block;
-  padding: 1.2rem 0;
-  color: #ddd;
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 0.15rem;
-  z-index: 1;
-  cursor: pointer;
-  text-align: center;
-  border: 0.25mm solid #ccc;
+  border: 0.3mm solid #ccc;
   border-radius: 1mm;
   box-sizing: border-box;
 }
-.button:hover {
-  color: #fff;
-  border: 0.25mm solid #fff;
+
+input[type=number], select {
+  width: 100%;
+  padding: 3mm 4mm;
+  margin: 1mm 0;
+  display: inline-block;
+  border: 0.3mm solid #ccc;
+  border-radius: 1mm;
+  box-sizing: border-box;
 }
-.button:active {
-  color: #eee;
-  border: 0.25mm solid #eee;
+
+.grid-label {
+  text-align: center;
 }
-body {
-  background-color: #2b2b2b;
+
+.grid-result {
+  font-size: 300%;
+  text-align: center;
+  font-weight: bold;
 }
-* {
+
+.grid-line {
+  text-align: center;
+  grid-column: 1 / span 3;
+}
+
+.grid-last-two {
+  grid-column: 2 / span 2;
+}
+
+.grid-error {
+  grid-column: 1 / span 3;
+  min-height: 5em;
   font-size: 100%;
-  font-family: Verdana;
+  font-weight: bold;
+  border-color: WhiteSmoke;
+  border-style: groove;
 }
-.grid-text {
-  display: inherit;
-  padding: 5px;
-  color: #fff;
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 3mm 4mm;
   text-align: center;
-}
-.credits {
-  padding-top: 50px;
-  padding-bottom: 10px;
-  color: #fff;
-  text-align: center;
-  display: block;
-}
-a {
-  color: #eee;
-}
-a:hover {
-  color: #ddd;
+  text-decoration: none;
+  display: inline-block;
+  margin: 1mm 0;
+  cursor: pointer;
 }
