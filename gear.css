@@ -1,23 +1,31 @@
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
   grid-gap: 1mm;
   padding: 1mm;
 }
 
 input[type=number],
 select {
-    padding: 10px;
-    background-color: #eee;
+  padding: 15px;
+  background-color: #eee;
 }
 
 .grid-label {
-  padding: 5px;
+  padding: 10px;
   color: #ccc;
   text-align: center;
 }
 
-.grid-result {
+.grid-score {
+  padding-top: 5px;
+  font-size: 200%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.grid-scorePer {
+  padding-top: 10px;
   font-size: 200%;
   text-align: center;
   font-weight: bold;
@@ -26,11 +34,31 @@ select {
 
 .grid-error {
   grid-column: 1 / span 3;
-  min-height: 5em;
+  min-height: 4em;
   border-color: WhiteSmoke;
   border-style: groove;
   color: #eee;
-  padding: 10px;
+  padding: 5px;
+  margin-top: 1%;
+}
+
+.grid-info {
+  grid-column: 1 / span 3;
+  border-color: WhiteSmoke;
+  border-style: groove;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  margin-top: 1%;
+  color: #fff;
+  display: block;
+  text-align: center;
+}
+
+.credits {
+  margin-top: 1%;
+  color: #fff;
+  text-align: center;
+  display: block;
 }
 
 .button {
@@ -65,14 +93,8 @@ body {
 * {
   font-size: 100%;
   font-family: Verdana;
-}
-
-.credits {
-  padding-top: 50px;
-  padding-bottom: 10px;
-  color: #fff;
-  display: block;
-  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
 }
 
 a {

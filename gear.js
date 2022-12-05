@@ -366,7 +366,8 @@ function reset() {
 	document.getElementById("score").innerHTML = "0";
 	document.getElementById("score-percentage").innerHTML = "0%";
 	document.getElementById("score-percentage").style = "background-color:#eee";
-	err("");
+	document.getElementById("errmsg").style = "padding-top:1%; text-align:center";
+	err("<h1>Start by entering the substat values!</h1>");
 }
 
 function validate() {
