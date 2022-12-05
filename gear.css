@@ -1,5 +1,6 @@
 .grid-container {
   display: grid;
+  grid-template-columns: minmax();
   grid-gap: 1mm;
   padding: 1mm;
 }
@@ -93,7 +94,7 @@ body {
 * {
   font-size: 100%;
   font-family: Verdana;
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: 0.05rem;
 }
 
