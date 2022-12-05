@@ -17,13 +17,13 @@
     <div class="grid-container">
       <div class="grid-label">Level</div>
       <div class="grid-label">Grade</div>
-      <div class="grid-label">Enhance</div>
+      <div class="grid-label">Enhancement</div>
 
       <select id="gear-lv" name="gear-lv" onchange="resetplaceholder()">
-        <option id="lv70" value="lv70">Lv58 - 71</option>
-        <option id="lv85" value="lv85" selected>Lv72 - 85</option>
-        <option id="lv90" value="lv90">Lv86 - 99</option>
-        <option id="lv90r" valur="lv90r">Lv90</option>
+        <option id="lv70" value="lv70">58 -> 71</option>
+        <option id="lv85" value="lv85" selected>72 -> 85</option>
+        <option id="lv90" value="lv90">86 -> 89</option>
+        <option id="lv90r" valur="lv90r">90+</option>
       </select>
 
       <select id="gear-type" name="gear-type" onchange="resetplaceholder()">
@@ -34,17 +34,17 @@
       </select>
 
       <select id="gear-enc-lv" onchange="resetplaceholder()" name="gear-enc-lv">
-        <option id="g0" value="gear-lv0" selected>+0, +1, +2</option>
-        <option id="g3" value="gear-lv3">+3, +4, +5</option>
-        <option id="g6" value="gear-lv6">+6, +7, +8</option>
-        <option id="g9" value="gear-lv9">+9, +10, +11</option>
-        <option id="g12" value="gear-lv12">+12, +13, +14</option>
+        <option id="g0" value="gear-lv0" selected>+0 +1 +2</option>
+        <option id="g3" value="gear-lv3">+3 +4 +5</option>
+        <option id="g6" value="gear-lv6">+6 +7 +8</option>
+        <option id="g9" value="gear-lv9">+9 +10 +11</option>
+        <option id="g12" value="gear-lv12">+12 +13 +14</option>
         <option id="g15" value="gear-lv15">+15</option>
       </select>
 
-      <div class="grid-label" id="label-atkper">Attack%</div>
-      <div class="grid-label" id="label-defper">Defense%</div>
-      <div class="grid-label" id="label-hpper">Health%</div>
+      <div class="grid-label" id="label-atkper">Attack (%)</div>
+      <div class="grid-label" id="label-defper">Defense (%)</div>
+      <div class="grid-label" id="label-hpper">Health (%)</div>
       <input type="number" id="atkper" min="0" max="48">
       <input type="number" id="defper" min="0" max="48">
       <input type="number" id="hpper" min="0" max="48">
@@ -63,8 +63,8 @@
       <input type="number" id="critdmg" min="0" max="48">
       <input type="number" id="spd" min="0" max="24">
 
-      <div class="grid-label" id="label-eff">Eff.</div>
-      <div class="grid-label" id="label-res">Eff. Resist</div>
+      <div class="grid-label" id="label-eff">Effective</div>
+      <div class="grid-label" id="label-res">Resist</div>
       <div class="grid-label" id="label-score">Score</div>
       <input type="number" id="eff" min="0" max="48">
       <input type="number" id="res" min="0" max="48">
