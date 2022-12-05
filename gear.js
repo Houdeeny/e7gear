@@ -4,17 +4,17 @@ window.onload = function () {
 
 function getSubstatName(id) {
 	switch (id) {
-		case 0: return "Attack%";
-		case 1: return "Defense%";
-		case 2: return "Health%";
+		case 0: return "Attack %";
+		case 1: return "Defense %";
+		case 2: return "Health %";
 		case 3: return "Effectiveness";
-		case 4: return "Effect.Resist";
-		case 5: return "Crit Dmg";
-		case 6: return "Crit Chance";
+		case 4: return "Effect Resistance";
+		case 5: return "Critical Damage";
+		case 6: return "Critical Chance";
 		case 7: return "Speed";
-		case 8: return "Attack";
-		case 9: return "Defense";
-		case 10: return "HP";
+		case 8: return "Flat Attack";
+		case 9: return "Flat Defense";
+		case 10: return "Flat Health";
 		default: return "Substat(" + id + ")";
 	}
 }
@@ -884,15 +884,15 @@ function report(enc_time, score) {
 	document.getElementById("score-percentage").innerHTML = percent_score + "%";
 
 	if ((percent_score >= 1) && (percent_score <= 49)) {
-		document.getElementById("score-percentage").style = "background-color:RED";
+		document.getElementById("score-percentage").style = "background-color:#D22B2B";
 	}
 
 	if ((percent_score >= 50) && (percent_score <= 69)) {
-		document.getElementById("score-percentage").style = "background-color:YELLOW";
+		document.getElementById("score-percentage").style = "background-color:#FFBF00";
 	}
 
-	else {
-		document.getElementById("score-percentage").style = "background-color:GREEN";
+	if ((percent_score >= 70) && (percent_score <= 100)) {
+		document.getElementById("score-percentage").style = "background-color:#7CFC00";
 	}
 
 	str = str + '<span style="font-size:115%">';
