@@ -365,7 +365,7 @@ function reset() {
 	resetplaceholder();
 	document.getElementById("score").innerHTML = "0";
 	document.getElementById("score-percentage").innerHTML = "0%";
-	document.getElementById("score-percentage").style = "background-color:#fff";
+	document.getElementById("score-percentage").style = "background-color:#eee";
 	err("");
 }
 
