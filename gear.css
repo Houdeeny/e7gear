@@ -13,7 +13,7 @@ select {
 	border: 0.3mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .grid-label {
@@ -28,7 +28,7 @@ select {
 	font-size: 200%;
 	text-align: center;
 	font-weight: bold;
-	background-color: #eee;
+	background-color: #fff;
 	display: inline-block;
 	border: 0.3mm solid #ccc;
 	border-radius: 1mm;
@@ -49,29 +49,24 @@ select {
 
 .grid-error {
 	grid-column: 1 / span 3;
-	min-height: 4em;
-	border-color: WhiteSmoke;
+	min-height: 3em;
+	border-color: #fff;
 	border-style: groove;
 	color: #eee;
 	padding: 5px;
+	padding-left: 15px;
 	margin-top: 1%;
-}
-
-.grid-error h1 {
-	text-align: center;
-	padding-top: 6px;
 }
 
 .grid-info {
 	grid-column: 1 / span 3;
-	border-color: WhiteSmoke;
+	border-color: #fff;
 	border-style: groove;
-	padding-top: 5px;
-	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-bottom: 10px;
 	margin-top: 1%;
 	color: #fff;
 	display: block;
-	text-align: center;
 }
 
 .credits {
@@ -84,14 +79,14 @@ select {
 .calculate {
 	display: inline-block;
 	padding: 1.2rem 0;
-	color: #fff;
 	text-transform: uppercase;
-	background-color: rgb(34, 139, 34);
+	background-color: #2ECC40;
 	font-size: 1rem;
+	font-weight: bold;
 	letter-spacing: 0.15rem;
+	text-align: center;
 	z-index: 1;
 	cursor: pointer;
-	text-align: center;
 	border: 0.25mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
@@ -108,10 +103,10 @@ select {
 .reset {
 	display: inline-block;
 	padding: 1.2rem 0;
-	color: #fff;
 	text-transform: uppercase;
-	background-color: rgb(210, 4, 45);
+	background-color: #FF4136;
 	font-size: 1rem;
+	font-weight: bold;
 	letter-spacing: 0.15rem;
 	z-index: 1;
 	cursor: pointer;
