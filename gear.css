@@ -6,19 +6,16 @@
 
 input[type=number],
 select {
-	width: 100%;
 	padding: 3mm 4mm;
 	margin: 1mm 0;
 	display: inline-block;
-	border: 0.3mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
-	background-color: #fff;
+	background-color: #eee;
 }
 
 .grid-label {
 	padding: 5px;
-	font-size: 0.9rem;
 	color: #ccc;
 	text-align: center;
 }
@@ -30,7 +27,6 @@ select {
 	font-weight: bold;
 	background-color: #fff;
 	display: inline-block;
-	border: 0.3mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
 }
@@ -41,7 +37,6 @@ select {
 	text-align: center;
 	font-weight: bold;
 	display: inline-block;
-	border: 0.3mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
 	background-color: #eee;
@@ -50,28 +45,25 @@ select {
 .grid-error {
 	grid-column: 1 / span 3;
 	min-height: 3em;
-	border-color: #fff;
 	border-style: groove;
 	color: #eee;
-	padding: 5px;
-	padding-left: 15px;
+	padding: 12px;
 	margin-top: 1%;
 }
 
 .grid-info {
 	grid-column: 1 / span 3;
-	border-color: #fff;
 	border-style: groove;
 	padding-left: 15px;
 	padding-bottom: 10px;
 	margin-top: 1%;
-	color: #fff;
+	color: #eee;
 	display: block;
 }
 
 .credits {
 	margin-top: 1%;
-	color: #fff;
+	color: #eee;
 	text-align: center;
 	display: block;
 }
@@ -83,21 +75,19 @@ select {
 	background-color: #2ECC40;
 	font-size: 1rem;
 	font-weight: bold;
-	letter-spacing: 0.15rem;
 	text-align: center;
 	z-index: 1;
 	cursor: pointer;
-	border: 0.25mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
 }
 
 .calculate:hover {
-	border: 0.25mm solid #fff;
+	filter: brightness(110%);
 }
 
 .calculate:active {
-	border: 0.25mm solid #eee;
+	filter: brightness(95%);
 }
 
 .reset {
@@ -107,32 +97,29 @@ select {
 	background-color: #FF4136;
 	font-size: 1rem;
 	font-weight: bold;
-	letter-spacing: 0.15rem;
 	z-index: 1;
 	cursor: pointer;
 	text-align: center;
-	border: 0.25mm solid #ccc;
 	border-radius: 1mm;
 	box-sizing: border-box;
 }
 
 .reset:hover {
-	border: 0.25mm solid #fff;
+	filter: brightness(110%);
 }
 
 .reset:active {
-	border: 0.25mm solid #eee;
+	filter: brightness(95%);
 }
 
 body {
-	background-color: #222;
+	background-color: #111;
 }
 
 * {
 	font-display: swap;
 	font-family: Verdana;
 	font-size: 0.95rem;
-	letter-spacing: 0.01rem;
 }
 
 a {
