@@ -302,7 +302,7 @@ function getSubstatName(e) {
        var c = 0;
        if (!(isNaN(e[n]) || e[n] <= 0) && (r++, c = isReforged() ? t[n] + a[n] : t[n], e[n] > 0 && e[n] < c)) return err("ERROR! " + getSubstatName(n) + " (" + e[n] + ") must be larger than " + c), -1
     }
-    return r != getRequiredDataCount() ? (err("ERROR! This gear requires " + getRequiredDataCount() + " substat(s)."), -1) : 0
+    return r != getRequiredDataCount() ? (err("ERROR! This gear should have " + getRequiredDataCount() + " substat(s) according to its' grade."), -1) : 0
  }
  
  function calc() {
@@ -367,7 +367,7 @@ function getSubstatName(e) {
  
  function getPossibleErrorDesc(e) {
     for (var t = "", r = getSubstat(), a = !1, n = document.getElementById("gear-lv").options, c = n[n.selectedIndex].id, o = 0; o < 11; o++) isNaN(r[o]) || r[o] <= 0 || 8 !== o && 9 !== o && 10 !== o || (a = !0);
-    return t = "ERROR! Substat(s) value does not match the gear type or the enhance level.", getMinTotalEncTime(e) > getMultiplier() && (t = t + " The substats requires at least " + (getMinTotalEncTime(e) - getSubstatCount()) + " upgrade, but it only did " + (getMultiplier() - getSubstatCount()) + " times."), "lv90" === c && (t += " If the gear was Lv88 gear bought from arena, set to Lv85 gear and try again."), a && (t += " We don't know the exact range for the flat substat, so the error might also caused by the wrong flat substat setting in this tool."), t
+    return t = "ERROR! Substat(s) value does not match the gear type or the enhancement level.", getMinTotalEncTime(e) > getMultiplier() && (t = t + " The substats requires at least " + (getMinTotalEncTime(e) - getSubstatCount()) + " upgrade, but it only did " + (getMultiplier() - getSubstatCount()) + " times."), "lv90" === c && (t += " If the gear was Lv88 gear bought from arena, set to Lv85 gear and try again."), a && (t += " We don't know the exact range for the flat substat, so the error might also caused by the wrong flat substat setting in this tool."), t
  }
  
  function getMinTotalEncTime(e) {
