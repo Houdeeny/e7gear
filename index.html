@@ -5,21 +5,21 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <title>E7 Gear Score Calculator</title>
-      <meta name="description" content="The classic Epic Seven gear score calculator, improved.">
+      <meta name="description" content="The classic Epic Seven gear score calculator.">
       <!-- Search Engine -->
-      <meta itemprop="name" content="E7 Gear Score Calculator">
-      <meta itemprop="description" content="The classic Epic Seven gear score calculator, improved.">
+      <meta itemprop="name" content="Gear Score Calculator">
+      <meta itemprop="description" content="The classic Epic Seven gear score calculator.">
       <meta itemprop="image" content="https://i.imgur.com/WKsPbLF.jpg">
       <!-- Twitter / Discord -->
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="E7 Gear Score Calculator">
-      <meta name="twitter:description" content="The classic Epic Seven gear score calculator, improved.">
+      <meta name="twitter:title" content="Gear Score Calculator">
+      <meta name="twitter:description" content="The classic Epic Seven gear score calculator.">
       <meta name="twitter:image" content="https://i.imgur.com/WKsPbLF.jpg">
       <!-- Open Graph general (Facebook, Pinterest & Google+) -->
       <meta property="og:url" content="https://houdeeny.github.io/e7gear">
       <meta property="og:type" content="website">
-      <meta property="og:title" content="E7 Gear Score Calculator">
-      <meta property="og:description" content="The classic Epic Seven gear score calculator, improved.">
+      <meta property="og:title" content="Gear Score Calculator">
+      <meta property="og:description" content="The classic Epic Seven gear score calculator.">
       <meta property="og:image" content="https://i.imgur.com/WKsPbLF.jpg">
       <!-- favicon -->
       <link rel="icon" href="https://i.imgur.com/6zWPWJQ.png">
@@ -38,10 +38,10 @@
             <option id="lv90r" valur="lv90r">90+</option>
          </select>
          <select id="gear-type" name="gear-type" onchange="resetplaceholder()">
-            <option id="gwhite" value="gwhite" style="color:BLACK; font-weight: bold;">Good</option>
-            <option id="gblue" value="gblue" style="color:BLUE; font-weight: bold;">Rare</option>
-            <option id="gpink" value="gpink" style="color:HOTPINK; font-weight: bold;" selected>Heroic</option>
-            <option id="gred" value="gred" style="color:RED; font-weight: bold;">Epic</option>
+            <option id="gwhite" value="gwhite" class="black">Good</option>
+            <option id="gblue" value="gblue" class="blue">Rare</option>
+            <option id="gpink" value="gpink" class="pink" selected>Heroic</option>
+            <option id="gred" value="gred" class="red">Epic</option>
          </select>
          <select id="gear-ench" onchange="resetplaceholder()" name="gear-ench">
             <option id="g0" value="gear-lv0" selected>+0 to +2</option>
@@ -89,25 +89,23 @@
             <br>4. Fill in the gear's substats.
             <br>5. Click the "Calculate" button.
             <h1>■ How to decide which gear is worth to keep/upgrade?</h1>
-            1) The gear with a good total score.
-            <br>◦ The gear score percentage will have different colors according to the quality of your gear.
-            <br>- RED: The gear rolled terribly low and you are advised to not enhance it any further.
-            <br>- YELLOW: The gear is usable, definitely keep it if you are early to midgame.
-            <br>- GREEN: The gear rolled well so it is obviously a keeper.
+            1) The gear score percentage will have different colors according to the quality of your gear.
+            <br>- <b class="green">GREEN</b>: The gear rolled well so it is obviously a keeper.
+            <br>- <b class="yellow">YELLOW</b>: The gear is usable, definitely keep it if you are early to midgame.
+            <br>- <b class="red">RED</b>: The gear rolled terribly low and you are advised to not enhance it any further.
             <br><br>2) The gear's total score is not high enough, but at least one of the substat has very good value.
             <br><br>3) One of the substat is equal/higher than player's expectation.
             <h1>■ Known Issue(s)</h1>
-            The ranges for flat attack, flat defense and flat health may not be precisely correct.
+            - The ranges for flat attack, flat defense and flat health may not be precisely correct.
+            <br>- Reforged gear score might show up incorrectly sometimes.
             <h1>■ Something to note..</h1>
-            I only did some minor improvements, planning to improve the calculator functions in the future cuz I think it
-            is not fully accurate.
-            <br>As of now, this calculator is good enough for getting a general score of your gear.
-            <br><br>If you want something more advanced, consider using <a
-               href="https://github.com/fribbels/Fribbels-Epic-7-Optimizer" target="_blank">Fribbels E7 Gear Optimizer</a>.
+            There is no functional difference in this version of calculator compared to the original.
+            <br>I simply made it easier to the eyes, mobile friendly and minor performance improvements.
+            <br><br>If you want something more advanced, consider using <a href="https://github.com/fribbels/Fribbels-Epic-7-Optimizer" target="_blank">Fribbels E7 Gear Optimizer</a>.
          </span>
       </div>
       <span class="credits">
-      E7 Gear Score Calculator modified by Houdeeny. <a href="https://discord.gg/hR7a5W7Kz3" target="_blank">My Discord Server</a>
+      E7 Gear Score Calculator modified by Houdeeny.
       <br>Credits to <a href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a> and <a href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>.
       </span>
       <script src="js/gear.js"></script>
