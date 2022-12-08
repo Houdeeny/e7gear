@@ -277,32 +277,32 @@ function getSubstatName(e) {
                 err("ERROR! Effectiveness (" + e[n] + "%) cannot be negative.");
                 break;
              case 4:
-                err("ERROR! Effect.Resistance (" + e[n] + "%) cannot be negative.");
+                err("ERROR! Effect Resistance (" + e[n] + "%) cannot be negative.");
                 break;
              case 5:
-                err("ERROR! Crit.Damage (" + e[n] + "%) cannot be negative.");
+                err("ERROR! Critical Damage (" + e[n] + "%) cannot be negative.");
                 break;
              case 6:
-                err("ERROR! Crit.Chance (" + e[n] + "%) cannot be negative.");
+                err("ERROR! Critical Chance (" + e[n] + "%) cannot be negative.");
                 break;
              case 7:
                 err("ERROR! Speed (" + e[n] + ") cannot be negative.");
                 break;
              case 8:
-                err("ERROR! Attach (" + e[n] + ") cannot be negative.");
+                err("ERROR! Flat Attack (" + e[n] + ") cannot be negative.");
                 break;
              case 9:
-                err("ERROR! Defense (" + e[n] + ") cannot be negative.");
+                err("ERROR! Flat Defense (" + e[n] + ") cannot be negative.");
                 break;
              case 10:
-                err("ERROR! Health (" + e[n] + ") cannot be negative.")
+                err("ERROR! Flat Health (" + e[n] + ") cannot be negative.")
           }
           return -1
        } for (n = 0; n < 11; n++) {
        var c = 0;
        if (!(isNaN(e[n]) || e[n] <= 0) && (r++, c = isReforged() ? t[n] + a[n] : t[n], e[n] > 0 && e[n] < c)) return err("ERROR! " + getSubstatName(n) + " (" + e[n] + ") must be larger than " + c), -1
     }
-    return r != getRequiredDataCount() ? (err("ERROR! This gear should have " + getRequiredDataCount() + " substat(s) according to its' grade."), -1) : 0
+    return r != getRequiredDataCount() ? (err("ERROR! This gear should have " + getRequiredDataCount() + " substat(s) according to its grade."), -1) : 0
  }
  
  function calc() {
