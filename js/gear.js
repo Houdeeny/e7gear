@@ -257,7 +257,7 @@ function getSubstatName(e) {
  }
  
  function reset() {
-    document.getElementById("atkper").value = "", document.getElementById("critch").value = "", document.getElementById("critdmg").value = "", document.getElementById("hpper").value = "", document.getElementById("defper").value = "", document.getElementById("spd").value = "", document.getElementById("eff").value = "", document.getElementById("res").value = "", document.getElementById("atkflat").value = "", document.getElementById("defflat").value = "", document.getElementById("hpflat").value = "", document.getElementById("gear-lv").value = "lv85", document.getElementById("gear-type").value = "gpink", document.getElementById("gear-ench").value = "gear-lv0", resetplaceholder(), document.getElementById("score").innerHTML = "0", document.getElementById("score-percentage").innerHTML = "0%", document.getElementById("score-percentage").style = "background-color:#eee", document.getElementById("errmsg").style = "border-color:#fff", err("<b>Start by entering the substat values and hit Calculate!</b>")
+    document.getElementById("atkper").value = "", document.getElementById("critch").value = "", document.getElementById("critdmg").value = "", document.getElementById("hpper").value = "", document.getElementById("defper").value = "", document.getElementById("spd").value = "", document.getElementById("eff").value = "", document.getElementById("res").value = "", document.getElementById("atkflat").value = "", document.getElementById("defflat").value = "", document.getElementById("hpflat").value = "", document.getElementById("gear-lv").value = "lv85", document.getElementById("gear-type").value = "gpink", document.getElementById("gear-ench").value = "gear-lv0", resetplaceholder(), document.getElementById("score").innerHTML = "0", document.getElementById("score-percentage").innerHTML = "0%", document.getElementById("score-percentage").style = "background-color:#eee", document.getElementById("result").style = "border-color:#fff", err("<b>Start by entering the substat values and hit Calculate!</b>")
  }
  
  function validate() {
@@ -398,12 +398,12 @@ function getSubstatName(e) {
  }
  
  function err(e) {
-    document.getElementById("errmsg").innerHTML = e
+    document.getElementById("result").innerHTML = e
  }
  
  function report(e, t) {
     for (var r = "", a = getSubstat(), n = (getSubstatCount(), getSubstatMax()), c = getSubstatMin(), o = Math.floor(t), l = 100 * getMultiplier(), s = Math.floor(100 * t / l), u = [0, 0, 0, 0], g = [0, 0, 0, 0], d = 0, i = 0, m = [0, 0, 0, 0], f = 0, b = 0, p = 0, h = 0; h < 11; h++) isNaN(a[h]) || a[h] <= 0 || (u[d] = a[h], g[d] = h, a[h] >= (n[h] - 1) * getGearEncLevel() ? h < 8 && (m[i] = h, i++) : a[h] >= 3 * n[h] && h < 8 && (m[i] = h, i++), d++);
-    document.getElementById("score").innerHTML = o, document.getElementById("score-percentage").innerHTML = s + "%", s >= 0 && s <= 49 && (document.getElementById("score-percentage").style = "background-color:#FF4136", document.getElementById("errmsg").style = "border-color:#FF4136"), s >= 50 && s <= 64 && (document.getElementById("score-percentage").style = "background-color:#FFDC00", document.getElementById("errmsg").style = "border-color:#FFDC00"), s >= 65 && s <= 100 && (document.getElementById("score-percentage").style = "background-color:#2ECC40", document.getElementById("errmsg").style = "border-color:#2ECC40"), r += "<h1>■ Summary</h1>", f = 1, b = 1;
+    document.getElementById("score").innerHTML = o, document.getElementById("score-percentage").innerHTML = s + "%", s >= 0 && s <= 49 && (document.getElementById("score-percentage").style = "background-color:#FF4136", document.getElementById("result").style = "border-color:#FF4136"), s >= 50 && s <= 64 && (document.getElementById("score-percentage").style = "background-color:#FFDC00", document.getElementById("result").style = "border-color:#FFDC00"), s >= 65 && s <= 100 && (document.getElementById("score-percentage").style = "background-color:#2ECC40", document.getElementById("result").style = "border-color:#2ECC40"), r += "<h1>■ Summary</h1>", f = 1, b = 1;
     for (h = 0; h < d; h++) {
        var v = Math.pow(n[g[h]] - u[h] / e[h] + 1, e[h]),
           y = Math.pow(n[g[h]] - c[g[h]] + 1, e[h]);
@@ -433,7 +433,7 @@ function getSubstatName(e) {
     r = r + "<br>◦ It will take an estimate of " + p + " gears to get a similar one.<br><br>", r = (r += "<h1>■ Gear Score</h1>") + "◦ Gear score is " + o + " out of " + l + " (" + s + "%)<br><br>", r += "<h1>■ Details</h1>";
     for (h = 0; h < d; h++) {
        var E = n[g[h]];
-       "85" !== getGearLevel() && "90r" !== getGearLevel || 7 !== g[h] || (E = 4), r = r + "◦ " + getSubstatName(g[h]) + " rolled " + e[h] + " time(s)", r = (r += '<br><span style="font-style:italic;font-size:85%;padding-left:10px">') + " " + u[h] + " out of " + E * e[h] + " points", isReforged() ? (r = (r += " | ") + "Got " + getReforge(e[h] - 1)[g[h]] + " points from reforge.<br>", u[h] > n[g[h]] * e[h] + getReforge(e[h] - 1)[g[h]] && (r += '<span style="font-color: red">Warning: The value is larger than the possible limitation.</span>')) : (r += "<br>", u[h] > n[g[h]] * e[h] && (r += '<span style="font-color: red">Warning: The value is larger than the possible limitation.</span>')), r += "</span><br>"
+       "85" !== getGearLevel() && "90r" !== getGearLevel || 7 !== g[h] || (E = 4), r = r + "◦ " + getSubstatName(g[h]) + " rolled " + e[h] + " time(s)", r = (r += '<br><span style="font-style:italic;font-size:85%;padding-left:10px">') + " " + u[h] + " out of " + E * e[h] + " points", isReforged() ? (r = (r += " | ") + "Got " + getReforge(e[h] - 1)[g[h]] + " points from reforge.<br>", u[h] > n[g[h]] * e[h] + getReforge(e[h] - 1)[g[h]] && (r += '<span style="font-color: red">WARNING! The value is larger than the possible limitation.</span><br>')) : (r += "<br>", u[h] > n[g[h]] * e[h] && (r += '<span style="font-color: red">WARNING! The value is larger than the possible limitation.</span><br>')), r += "</span><br>"
     }
     err(r)
  }

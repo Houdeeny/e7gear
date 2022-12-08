@@ -1,113 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- COMMON TAGS -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <title>E7 Gear Score Calculator</title>
-      <meta name="description" content="The classic Epic Seven gear score calculator.">
-      <!-- Search Engine -->
-      <meta itemprop="name" content="Gear Score Calculator">
-      <meta itemprop="description" content="The classic Epic Seven gear score calculator.">
-      <meta itemprop="image" content="https://i.imgur.com/WKsPbLF.jpg">
-      <!-- Twitter / Discord -->
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Gear Score Calculator">
-      <meta name="twitter:description" content="The classic Epic Seven gear score calculator.">
-      <meta name="twitter:image" content="https://i.imgur.com/WKsPbLF.jpg">
-      <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-      <meta property="og:url" content="https://houdeeny.github.io/e7gear">
-      <meta property="og:type" content="website">
-      <meta property="og:title" content="Gear Score Calculator">
-      <meta property="og:description" content="The classic Epic Seven gear score calculator.">
-      <meta property="og:image" content="https://i.imgur.com/WKsPbLF.jpg">
-      <!-- favicon -->
-      <link rel="icon" href="https://i.imgur.com/6zWPWJQ.png">
-      <!-- Scripts, CSS -->
-      <link rel="stylesheet" type="text/css" href="css/gear.css">
-   </head>
-   <body id="bg">
-      <div class="grid-container">
-         <div class="grid-label">Level</div>
-         <div class="grid-label">Grade</div>
-         <div class="grid-label">Enhancement</div>
-         <select id="gear-lv" name="gear-lv" onchange="resetplaceholder()">
-            <option id="lv70" value="lv70">58 to 71</option>
-            <option id="lv85" value="lv85" selected>72 to 85</option>
-            <option id="lv90" value="lv90">86 to 89</option>
-            <option id="lv90r" valur="lv90r">90+</option>
-         </select>
-         <select id="gear-type" name="gear-type" onchange="resetplaceholder()">
-            <option id="gwhite" value="gwhite" class="black">Good</option>
-            <option id="gblue" value="gblue" class="blue">Rare</option>
-            <option id="gpink" value="gpink" class="pink" selected>Heroic</option>
-            <option id="gred" value="gred" class="red">Epic</option>
-         </select>
-         <select id="gear-ench" onchange="resetplaceholder()" name="gear-ench">
-            <option id="g0" value="gear-lv0" selected>+0 to +2</option>
-            <option id="g3" value="gear-lv3">+3 to +5</option>
-            <option id="g6" value="gear-lv6">+6 to +8</option>
-            <option id="g9" value="gear-lv9">+9 to +11</option>
-            <option id="g12" value="gear-lv12">+12 to +14</option>
-            <option id="g15" value="gear-lv15">+15</option>
-         </select>
-         <div class="grid-label" id="label-atkper">Attack (%)</div>
-         <div class="grid-label" id="label-defper">Defense (%)</div>
-         <div class="grid-label" id="label-hpper">Health (%)</div>
-         <input type="number" id="atkper" min="0" max="48">
-         <input type="number" id="defper" min="0" max="48">
-         <input type="number" id="hpper" min="0" max="48">
-         <div class="grid-label" id="label-atkflat">Attack</div>
-         <div class="grid-label" id="label-defflat">Defense</div>
-         <div class="grid-label" id="label-hpflat">Health</div>
-         <input type="number" id="atkflat" min="0" max="282">
-         <input type="number" id="defflat" min="0" max="198">
-         <input type="number" id="hpflat" min="0" max="1200">
-         <div class="grid-label" id="label-critch">Crit Chance</div>
-         <div class="grid-label" id="label-critdmg">Crit Damage</div>
-         <div class="grid-label" id="label-spd">Speed</div>
-         <input type="number" id="critch" min="0" max="48">
-         <input type="number" id="critdmg" min="0" max="48">
-         <input type="number" id="spd" min="0" max="24">
-         <div class="grid-label" id="label-eff">Effectiveness</div>
-         <div class="grid-label" id="label-res">Resistance</div>
-         <div class="grid-label" id="label-score">Score</div>
-         <input type="number" id="eff" min="0" max="48">
-         <input type="number" id="res" min="0" max="48">
-         <div class="grid-score" id="score"></div>
-         <div class="calculate" id="btn-calc" onclick="calc()">Calculate</div>
-         <div class="reset" id="btn-reset" onclick="reset()">Reset</div>
-         <div class="grid-scorePer" id="score-percentage"></div>
-         <div class="grid-error" id="errmsg"></div>
-         <span class="grid-info">
-            <h1>■ What is this?</h1>
-            This is a web tool for Epic Seven players to determine the quality of their gear based on substats.
-            <h1>■ How do I use this?</h1>
-            1. Select the gear's level.
-            <br>2. Select the gear's grade.
-            <br>3. Select the enhancement level.
-            <br>4. Fill in the gear's substats.
-            <br>5. Click the "Calculate" button.
-            <h1>■ How to decide which gear is worth to keep/upgrade?</h1>
-            1) The gear score percentage will have different colors according to the quality of your gear.
-            <br>- <b class="green">GREEN</b>: The gear rolled well so it is obviously a keeper.
-            <br>- <b class="yellow">YELLOW</b>: The gear is usable, definitely keep it if you are early to midgame.
-            <br>- <b class="red">RED</b>: The gear rolled terribly low and you are advised to not enhance it any further.
-            <br><br>2) The gear's total score is not high enough, but at least one of the substat has very good value.
-            <br><br>3) One of the substat is equal/higher than player's expectation.
-            <h1>■ Known Issue(s)</h1>
-            - The ranges for flat attack, flat defense and flat health may not be precisely correct.
-            <br>- Reforged gear score might show up incorrectly sometimes.
-            <h1>■ Something to note..</h1>
-            There is no functional difference in this version of calculator compared to the original.
-            <br>I simply made it easier to the eyes, mobile friendly and minor performance improvements.
-            <br><br>If you want something more advanced, consider using <a href="https://github.com/fribbels/Fribbels-Epic-7-Optimizer" target="_blank">Fribbels E7 Gear Optimizer</a>.
-         </span>
-      </div>
-      <span class="credits">
-      E7 Gear Score Calculator modified by Houdeeny.
-      <br>Credits to <a href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a> and <a href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>.
+
+<head>
+   <!-- COMMON TAGS -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <title>E7 Gear Score Calculator</title>
+   <meta name="description" content="The classic Epic Seven gear score calculator.">
+   <!-- Search Engine -->
+   <meta itemprop="name" content="E7 Gear Score Calculator">
+   <meta itemprop="description" content="The classic Epic Seven gear score calculator.">
+   <meta itemprop="image" content="https://i.imgur.com/WKsPbLF.jpg">
+   <!-- Twitter / Discord -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="E7 Gear Score Calculator">
+   <meta name="twitter:description" content="The classic Epic Seven gear score calculator.">
+   <meta name="twitter:image" content="https://i.imgur.com/WKsPbLF.jpg">
+   <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+   <meta property="og:url" content="https://houdeeny.github.io/e7gear">
+   <meta property="og:type" content="website">
+   <meta property="og:title" content="E7 Gear Score Calculator">
+   <meta property="og:description" content="The classic Epic Seven gear score calculator.">
+   <meta property="og:image" content="https://i.imgur.com/WKsPbLF.jpg">
+   <!-- favicon -->
+   <link rel="icon" href="https://i.imgur.com/6zWPWJQ.png">
+   <!-- Scripts, CSS -->
+   <link rel="stylesheet" type="text/css" href="css/gear.css">
+</head>
+
+<body id="bg">
+   <div class="grid-container">
+      <div class="grid-label">Level</div>
+      <div class="grid-label">Grade</div>
+      <div class="grid-label">Enhancement</div>
+      <select id="gear-lv" name="gear-lv" onchange="resetplaceholder()">
+         <option id="lv70" value="lv70">58 to 71</option>
+         <option id="lv85" value="lv85" selected>72 to 85</option>
+         <option id="lv90" value="lv90">86 to 89</option>
+         <option id="lv90r" valur="lv90r">90+</option>
+      </select>
+      <select id="gear-type" name="gear-type" onchange="resetplaceholder()">
+         <option id="gwhite" value="gwhite" class="black">Good</option>
+         <option id="gblue" value="gblue" class="blue">Rare</option>
+         <option id="gpink" value="gpink" class="pink" selected>Heroic</option>
+         <option id="gred" value="gred" class="red">Epic</option>
+      </select>
+      <select id="gear-ench" onchange="resetplaceholder()" name="gear-ench">
+         <option id="g0" value="gear-lv0" selected>+0 to +2</option>
+         <option id="g3" value="gear-lv3">+3 to +5</option>
+         <option id="g6" value="gear-lv6">+6 to +8</option>
+         <option id="g9" value="gear-lv9">+9 to +11</option>
+         <option id="g12" value="gear-lv12">+12 to +14</option>
+         <option id="g15" value="gear-lv15">+15</option>
+      </select>
+      <div class="grid-label">Attack (%)</div>
+      <div class="grid-label">Defense (%)</div>
+      <div class="grid-label">Health (%)</div>
+      <input type="number" id="atkper" min="0" max="48">
+      <input type="number" id="defper" min="0" max="48">
+      <input type="number" id="hpper" min="0" max="48">
+      <div class="grid-label">Attack</div>
+      <div class="grid-label">Defense</div>
+      <div class="grid-label">Health</div>
+      <input type="number" id="atkflat" min="0" max="282">
+      <input type="number" id="defflat" min="0" max="198">
+      <input type="number" id="hpflat" min="0" max="1200">
+      <div class="grid-label">Crit Chance</div>
+      <div class="grid-label">Crit Damage</div>
+      <div class="grid-label">Speed</div>
+      <input type="number" id="critch" min="0" max="48">
+      <input type="number" id="critdmg" min="0" max="48">
+      <input type="number" id="spd" min="0" max="24">
+      <div class="grid-label">Effectiveness</div>
+      <div class="grid-label">Resistance</div>
+      <div class="grid-label">Score</div>
+      <input type="number" id="eff" min="0" max="48">
+      <input type="number" id="res" min="0" max="48">
+      <div class="grid-score" id="score"></div>
+      <div class="calculate" onclick="calc()">Calculate</div>
+      <div class="reset" onclick="reset()">Reset</div>
+      <div class="grid-score" id="score-percentage"></div>
+      <div class="grid-result" id="result"></div>
+      <span class="grid-info">
+         <h4>■ What is this?</h4>
+         <p>This is a web tool for Epic Seven players to determine the quality of their gear based on substats.</p>
+         <h4>■ How do I use this?</h4>
+         <ol>
+            <li>Select the gear's level.</li>
+            <li>Select the gear's grade.</li>
+            <li>Select the enhancement level.</li>
+            <li>Fill in the gear's substats.</li>
+            <li>Click the "Calculate" button.</li>
+         </ol>
+         <h4>■ How to decide which gear is worth to keep/upgrade?</h4>
+         <ol>
+            <li>The gear score percentage will have different colors according to the quality of your gear.
+               <ul>
+                  <li><b class="green">GREEN</b>: The gear rolled well so it is obviously a keeper.</li>
+                  <li><b class="yellow">YELLOW</b>: The gear is usable, definitely keep it if you are early to midgame.</li>
+                  <li><b class="red">RED</b>: The gear rolled terribly low and you are advised to not enhance it any further.</li>
+               </ul>
+            </li>
+            <li>The gear's total score is not high enough, but at least one of the substat has very good value.</li>
+            <li>One of the substat is equal/higher than player's expectation.</li>
+         </ol>
+         <h4>■ Known Issue(s)</h4>
+         <ul>
+            <li>The ranges for flat attack, flat defense and flat health may not be precisely correct.</li>
+            <li>Reforged gear score might show up incorrectly sometimes.</li>
+         </ul>
+         <h4>■ Something to note..</h4>
+         <p>There is no functional difference in this version of calculator compared to the original.</p>
+         <p>I simply made it easier to the eyes, mobile friendly and minor performance improvements.</p>
+         <p>If you want something more advanced, consider using <a href="https://github.com/fribbels/Fribbels-Epic-7-Optimizer" target="_blank">Fribbels E7 Gear Optimizer</a>.</p>
       </span>
-      <script src="js/gear.js"></script>
-   </body>
+   </div>
+   <span class="credits">
+      <p>E7 Gear Score Calculator modified by Houdeeny.</p>
+      Credits to <a href="https://meowyih.github.io/epic7-gear/index.html" target="_blank">Meowyih</a> and <a href="https://needlebot.github.io/e7gear/" target="_blank">Needlebot</a>.
+   </span>
+   <script src="js/gear.js"></script>
+</body>
+
 </html>

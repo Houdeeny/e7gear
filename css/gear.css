@@ -21,64 +21,63 @@ select {
 }
 
 .grid-score {
-	padding-top: 5px;
-	font-size: 200%;
+	padding-top: 0.5rem;
+	font-size: 175%;
 	text-align: center;
 	font-weight: bold;
 	background-color: #eee;
-	display: inline-block;
-	border-radius: 1mm;
-	box-sizing: border-box
+	border-radius: 1mm
 }
 
-.grid-scorePer {
-	padding-top: 10px;
-	font-size: 200%;
-	text-align: center;
-	font-weight: bold;
-	background-color: #eee;
-	display: inline-block;
-	border-radius: 1mm;
-	box-sizing: border-box
-}
-
-.grid-error {
+.grid-result {
 	grid-column: 1 / span 3;
 	border-style: groove;
 	color: #eee;
 	padding: 12px;
-	margin-top: 1%
+	margin-top: 10px
 }
 
 .grid-info {
 	grid-column: 1 / span 3;
 	border-style: groove;
-	padding-left: 15px;
-	padding-bottom: 10px;
-	margin-top: 1%;
 	color: #eee;
-	display: block
+	padding: 12px;
+	margin-top: 10px
+}
+
+h4 {
+	margin-top: 0.25em;
+	margin-bottom: 0.5em;
+	line-height: 1.3em;
+}
+
+p {
+	margin-top: 0.25em;
+	margin-bottom: 0.5em;
+	line-height: 1.3em;
+}
+
+li {
+	margin-left: -1rem;
+	line-height: 1.25rem;
 }
 
 .credits {
-	margin-top: 1%;
 	color: #eee;
 	text-align: center;
+	margin-top: 10px;
 	display: block
 }
 
 .calculate {
-	display: inline-block;
-	padding: 1.2rem 0;
+	padding: 1rem;
 	text-transform: uppercase;
 	background-color: #2ecc40;
 	font-size: 1rem;
 	font-weight: bold;
-	text-align: center;
-	z-index: 1;
 	cursor: pointer;
-	border-radius: 1mm;
-	box-sizing: border-box
+	text-align: center;
+	border-radius: 1mm
 }
 
 .calculate:hover {
@@ -90,17 +89,14 @@ select {
 }
 
 .reset {
-	display: inline-block;
-	padding: 1.2rem 0;
+	padding: 1rem;
 	text-transform: uppercase;
 	background-color: #ff4136;
 	font-size: 1rem;
 	font-weight: bold;
-	z-index: 1;
 	cursor: pointer;
 	text-align: center;
 	border-radius: 1mm;
-	box-sizing: border-box
 }
 
 .reset:hover {
@@ -118,7 +114,6 @@ body {
 * {
 	font-display: swap;
 	font-family: Verdana;
-	font-size: .95rem
 }
 
 .black { color: #111111; font-weight: bold; }
