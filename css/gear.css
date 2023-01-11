@@ -1,137 +1,111 @@
 .grid-container {
 	display: grid;
-	grid-gap: 1mm;
-	padding: 1mm
+	grid-gap: 0.5rem 
 }
-
-input[type=number],
-select {
-	padding: 3mm 4mm;
-	margin: 1mm 0;
-	display: inline-block;
+input[type=number], select {
+	padding: 1rem;
 	border-radius: 1mm;
 	box-sizing: border-box;
-	background-color: #eee
+	background-color: #eee 
 }
-
 .grid-label {
-	padding: 5px;
+	padding: 8px;
 	color: #ccc;
-	text-align: center
+	text-align: center 
 }
-
 .grid-score {
 	padding-top: 0.5rem;
 	font-size: 175%;
-	text-align: center;
 	font-weight: bold;
-	background-color: #eee;
-	border-radius: 1mm
+	text-align: center;
+	background-color: #eee 
 }
-
 .grid-result {
 	grid-column: 1 / span 3;
 	border-style: groove;
 	color: #eee;
-	padding: 12px;
-	margin-top: 10px
+	padding: 8px;
+	margin-top: 12px 
 }
-
 .grid-info {
 	grid-column: 1 / span 3;
-	border-style: groove;
 	color: #eee;
-	padding: 12px;
-	margin-top: 10px
+	padding: 4px 
 }
-
 h4 {
 	margin-top: 0.25em;
 	margin-bottom: 0.5em;
-	line-height: 1.3em;
+	line-height: 1.3em 
 }
-
 p {
 	margin-top: 0.25em;
 	margin-bottom: 0.5em;
-	line-height: 1.3em;
+	line-height: 1.3em 
 }
-
 li {
 	margin-left: -1rem;
-	line-height: 1.25rem;
+	line-height: 1.25rem 
 }
-
 .credits {
 	color: #eee;
 	text-align: center;
-	margin-top: 10px;
-	display: block
+	display: block 
 }
-
 .calculate {
 	padding: 1rem;
-	text-transform: uppercase;
 	background-color: #2ecc40;
-	font-size: 1rem;
-	font-weight: bold;
 	cursor: pointer;
-	text-align: center;
-	border-radius: 1mm
+	text-align: center 
 }
-
 .calculate:hover {
-	filter: brightness(110%)
+	filter: brightness(110%) 
 }
-
 .calculate:active {
-	filter: brightness(95%)
+	filter: brightness(95%) 
 }
-
 .reset {
 	padding: 1rem;
-	text-transform: uppercase;
 	background-color: #ff4136;
-	font-size: 1rem;
-	font-weight: bold;
 	cursor: pointer;
-	text-align: center;
-	border-radius: 1mm;
+	text-align: center 
 }
-
 .reset:hover {
-	filter: brightness(110%)
+	filter: brightness(110%) 
 }
-
 .reset:active {
-	filter: brightness(95%)
+	filter: brightness(95%) 
 }
-
 body {
-	background-color: #111
-}
-
-* {
-	font-display: swap;
+	background-color: #111;
 	font-family: Verdana;
 }
-
-.black { color: #111111; font-weight: bold; }
-
-.blue { color: #0074D9; font-weight: bold; }
-
-.pink { color: #F012BE; font-weight: bold; }
-
-.red { color: #FF4136; font-weight: bold; }
-
-.yellow { color: #FFDC00; font-weight: bold; }
-
-.green { color: #2ECC40; font-weight: bold; }
-
-a {
-	color: #eee
+.black {
+	color: #111111;
+	font-weight: bold
 }
-
+.blue {
+	color: #0074D9;
+	font-weight: bold
+}
+.pink {
+	color: #F012BE;
+	font-weight: bold
+}
+.red {
+	color: #FF4136;
+	font-weight: bold
+}
+.yellow {
+	color: #FFDC00;
+	font-weight: bold
+}
+.green {
+	color: #2ECC40;
+	font-weight: bold
+}
+a {
+	color: #eee 
+}
 a:hover {
 	color: #ddd
 }
