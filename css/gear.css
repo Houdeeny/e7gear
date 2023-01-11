@@ -1,111 +1,125 @@
 .grid-container {
 	display: grid;
-	grid-gap: 0.5rem 
+	grid-gap: 0.5em;
 }
-input[type=number], select {
-	padding: 1rem;
-	border-radius: 1mm;
-	box-sizing: border-box;
-	background-color: #eee 
+
+li {
+	margin-left: -1em;
 }
+
+input[type="number"],
+select {
+	padding: 0.75rem;
+	font-size: 100%;
+	background-color: #eee;
+}
+
 .grid-label {
 	padding: 8px;
 	color: #ccc;
-	text-align: center 
+	text-align: center;
 }
+
 .grid-score {
-	padding-top: 0.5rem;
+	padding-top: 0.25em;
 	font-size: 175%;
 	font-weight: bold;
 	text-align: center;
-	background-color: #eee 
+	background-color: #eee;
 }
+
 .grid-result {
 	grid-column: 1 / span 3;
-	border-style: groove;
+	padding-left: 16px;
 	color: #eee;
-	padding: 8px;
-	margin-top: 12px 
 }
+
+.grid-result h4 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
 .grid-info {
 	grid-column: 1 / span 3;
+	margin-top: -1em;
 	color: #eee;
-	padding: 4px 
 }
-h4 {
-	margin-top: 0.25em;
-	margin-bottom: 0.5em;
-	line-height: 1.3em 
-}
-p {
-	margin-top: 0.25em;
-	margin-bottom: 0.5em;
-	line-height: 1.3em 
-}
-li {
-	margin-left: -1rem;
-	line-height: 1.25rem 
-}
+
 .credits {
 	color: #eee;
 	text-align: center;
-	display: block 
+	display: block;
 }
+
 .calculate {
-	padding: 1rem;
+	padding: 1em;
 	background-color: #2ecc40;
 	cursor: pointer;
-	text-align: center 
+	text-align: center;
 }
+
 .calculate:hover {
-	filter: brightness(110%) 
+	filter: brightness(110%);
 }
+
 .calculate:active {
-	filter: brightness(95%) 
+	filter: brightness(95%);
 }
+
 .reset {
-	padding: 1rem;
+	padding: 1em;
 	background-color: #ff4136;
 	cursor: pointer;
-	text-align: center 
+	text-align: center;
 }
+
 .reset:hover {
-	filter: brightness(110%) 
+	filter: brightness(110%);
 }
+
 .reset:active {
-	filter: brightness(95%) 
+	filter: brightness(95%);
 }
+
 body {
 	background-color: #111;
 	font-family: Verdana;
 }
+
 .black {
 	color: #111111;
-	font-weight: bold
+	font-weight: bold;
 }
+
 .blue {
-	color: #0074D9;
-	font-weight: bold
+	color: #0074d9;
+	font-weight: bold;
 }
+
 .pink {
-	color: #F012BE;
-	font-weight: bold
+	color: #f012be;
+	font-weight: bold;
 }
+
 .red {
-	color: #FF4136;
-	font-weight: bold
+	color: #ff4136;
+	font-weight: bold;
 }
+
 .yellow {
-	color: #FFDC00;
-	font-weight: bold
+	color: #ffdc00;
+	font-weight: bold;
 }
+
 .green {
-	color: #2ECC40;
-	font-weight: bold
+	color: #2ecc40;
+	font-weight: bold;
 }
+
 a {
-	color: #eee 
+	color: #eee;
 }
+
 a:hover {
-	color: #ddd
+	color: #ddd;
 }
